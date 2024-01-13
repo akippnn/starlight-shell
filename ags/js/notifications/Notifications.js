@@ -29,11 +29,11 @@ const Popups = parent => {
         if (!id || Notifications.dnd)
             return;
 
-        const n = Notifications.getNotification(id);
-        if (!n)
+        if (options.notifications.black_list.value.includes(n.app_name || ''))
             return;
 
-        if (options.notifications.black_list.value.includes(n.app_name || ''))
+        const n = Notifications.getNotification(id);
+        if (!n)
             return;
 
         map.delete(id);
