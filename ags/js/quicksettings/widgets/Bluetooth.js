@@ -52,6 +52,17 @@ const DeviceItem = device => Widget.Box({
     ],
 });
 
+const SettingsButton = () => Widget.Button({
+    on_clicked: () => Utils.execAsync('blueman-manager'),
+    hexpand: true,
+    child: Widget.Box({
+        children: [
+            Widget.Icon(icons.ui.settings),
+            Widget.Label('Blueman Manager'),
+        ],
+    }),
+});
+
 export const BluetoothDevices = () => Menu({
     name: 'bluetooth',
     icon: Widget.Icon(icons.bluetooth.disabled),
@@ -64,5 +75,7 @@ export const BluetoothDevices = () => Menu({
                 .filter(d => d.name)
                 .map(DeviceItem)),
         }),
+        Widget.Separator(),
+        SettingsButton(),
     ],
 });
