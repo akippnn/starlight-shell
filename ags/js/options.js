@@ -18,9 +18,9 @@ export default {
     apply: apply,
     list: getOptions,
 
-    spacing: Option(9),
-    padding: Option(8),
-    radii: Option(9),
+    spacing: Option(8),
+    padding: Option(10),
+    radii: Option(12),
 
     popover_padding_multiplier: Option(1.4, {
         'category': 'General',
@@ -57,7 +57,7 @@ export default {
             'title': 'Color Scheme',
             'scss': 'color-scheme',
         }),
-        bg: Option('#171717', {
+        bg: Option('transparentize(#171717, 0.3)', {
             'title': 'Background Color',
             'scss': 'bg-color',
         }),
@@ -67,7 +67,7 @@ export default {
         }),
 
         accent: {
-            accent: Option('$blue', {
+            accent: Option('#6c6e85', {
                 'category': 'Theme',
                 'title': 'Accent Color',
                 'scss': 'accent',
@@ -161,16 +161,16 @@ export default {
     },
 
     bar: {
-        position: Option('top', {
+        position: Option('bottom', {
             'enums': ['top', 'bottom'],
             'type': 'enum',
         }),
-        style: Option('normal', {
+        style: Option('separated', {
             'enums': ['floating', 'normal', 'separated'],
             'type': 'enum',
         }),
-        flat_buttons: Option(true, { 'scss': 'bar-flat-buttons' }),
-        separators: Option(true),
+        flat_buttons: Option(false, { 'scss': 'bar-flat-buttons' }),
+        separators: Option(false),
         icon: Option('distro-icon', {
             'note': '"distro-icon" or a single font',
         }),
@@ -188,8 +188,8 @@ export default {
             height: Option(14, { 'category': 'Bar' }),
             full: Option(false, { 'category': 'Bar' }),
         },
-        low: Option(30, { 'category': 'Bar' }),
-        medium: Option(50, { 'category': 'Bar' }),
+        low: Option(15, { 'category': 'Bar' }),
+        medium: Option(30, { 'category': 'Bar' }),
     },
 
     desktop: {
@@ -205,9 +205,9 @@ export default {
             'type': 'img',
             'note': 'displayed in quicksettings and locksreen',
         }),
-        screen_corners: Option(true, { 'scss': 'screen-corners' }),
+        screen_corners: Option(false, { 'scss': 'screen-corners' }),
         clock: {
-            enable: Option(true),
+            enable: Option(false),
             position: Option('center center', {
                 'note': 'halign valign',
             }),
@@ -217,25 +217,13 @@ export default {
         dock: {
             icon_size: Option(56),
             pinned_apps: Option([
-                'firefox',
-                'org.wezfurlong.wezterm',
-                'org.gnome.Nautilus',
-                'org.gnome.Calendar',
-                'obsidian',
-                'transmission-gtk',
-                'caprine',
-                'teams-for-linux',
-                'discord',
-                'spotify',
-                'com.usebottles.bottles',
-                'org.gnome.Software',
             ], { 'scss': 'exclude' }),
         },
     },
 
     notifications: {
-        black_list: Option(['Spotify'], { 'note': 'app-name | entry' }),
-        position: Option(['top', 'right'], { 'note': 'anchor' }),
+        black_list: Option(['spotify'], { 'note': 'app-name | entry' }),
+        position: Option(['bottom'], { 'note': 'anchor' }),
         width: Option(450),
     },
 
@@ -258,7 +246,7 @@ export default {
         }),
     },
 
-    workspaces: Option(7, {
+    workspaces: Option(0, {
         'category': 'Bar',
         'title': 'No. workspaces on bar and overview',
         'note': 'Set it to 0 to make it dynamic',
@@ -288,6 +276,14 @@ export default {
             ['firefox', 'Firefox'],
             ['org.gnome.Nautilus', 'Files'],
             ['libreoffice-writer', 'Writer'],
+
+            ['blueman-manager', 'Blueman Manager'],
+            ['discord', 'Discord'],
+            ['nemo', 'Files'],
+            ['virt-manager', 'Virtual Machine Manager'],
+            ['io.github.flattool.Warehouse', 'Warehouse'],
+            ['org.gnome.Loupe', 'Image Viewer'],
+            ['org.gnome.Software', 'Software'],
             ['', 'Desktop'],
         ],
     },
