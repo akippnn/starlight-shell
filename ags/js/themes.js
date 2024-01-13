@@ -6,17 +6,16 @@ import { Theme, WP, lightColors } from './settings/theme.js';
 
 export default [
     Theme({
-        name: 'Kitty Dark',
-        icon: '󰄛',
-        'desktop.wallpaper.img': WP + 'kittybl.jpeg',
-    }),
-    Theme({
-        name: 'Kitty Light',
-        icon: '󰄛',
-        'desktop.wallpaper.img': WP + 'kitty.jpeg',
-        ...lightColors,
-        'theme.widget.bg': '$accent',
-        'theme.widget.opacity': 64,
+        "name": "starlight",
+        "icon": "🌠",
+        'desktop.wallpaper.img': WP + 'starlight.jpg',
+        "theme.accent.accent": "#6c6e85",
+        "theme.accent.gradient": "to right, $accent, lighten($accent, 6%)",
+        'theme.widget.opacity': 95,
+        'border.opacity': 97,
+        'theme.bg': 'transparentize(#171717, 0.3)',
+        "bar.style": "separated",
+        'font.font': "Ubuntu Nerd Font Regular",
     }),
     Theme({
         name: 'Leaves',
@@ -32,7 +31,7 @@ export default [
     }),
     Theme({
         name: 'Ivory',
-        icon: '󰟆',
+        icon: '<U+F07C6>',
         ...lightColors,
         'desktop.wallpaper.img': WP + 'ivory.png',
         'desktop.wallpaper.fg': '$bg_color',
@@ -58,7 +57,6 @@ export default [
         'desktop.screen_corners': false,
         'desktop.clock.enable': false,
         'bar.separators': false,
-        'bar.icon': '',
         'theme.bg': 'transparentize(#171717, 0.3)',
         'theme.widget.opacity': 95,
         'bar.flat_buttons': false,
