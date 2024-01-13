@@ -32,11 +32,6 @@ export default () => PopupWindow({
         class_name: 'window-content',
         children: [
             Widget.Box({
-                class_name: 'avatar',
-                hpack: 'center',
-                css: `background-image: url('${avatar}');`,
-            }),
-            Widget.Box({
                 vertical: true,
                 class_name: 'labels vertical',
                 children: [
@@ -62,8 +57,8 @@ export default () => PopupWindow({
                 vpack: 'end',
                 children: [
                     LinkButton({
-                        label: 'Support me on Ko-fi',
-                        link: pkg.kofi,
+                        label: 'Special thanks to Aylur',
+                        link: 'https://github.com/Aylur/',
                     }),
                     LinkButton({
                         label: 'Report an Issue',
