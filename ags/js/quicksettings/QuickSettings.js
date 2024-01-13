@@ -1,11 +1,11 @@
 import Widget from 'resource:///com/github/Aylur/ags/widget.js';
 import Header from './widgets/Header.js';
 import PopupWindow from '../misc/PopupWindow.js';
-import { Volume, Microhone, SinkSelector, AppMixer } from './widgets/Volume.js';
+import { Volume, Microhone, SinkSelector, AppMixerToggle, AppMixer } from './widgets/Volume.js';
 import { NetworkToggle, WifiSelection } from './widgets/Network.js';
 import { BluetoothToggle, BluetoothDevices } from './widgets/Bluetooth.js';
 import { ThemeToggle, ThemeSelector } from './widgets/Theme.js';
-import { ProfileToggle, ProfileSelector } from './widgets/AsusProfile.js';
+//import { ProfileToggle, ProfileSelector } from './widgets/AsusProfile.js';
 import Media from './widgets/Media.js';
 import Brightness from './widgets/Brightness.js';
 import DND from './widgets/DND.js';
@@ -31,12 +31,12 @@ const Homogeneous = toggles => Widget.Box({
 export default () => PopupWindow({
     name: 'quicksettings',
     setup: self => self.hook(options.bar.position, () => {
-        self.anchor = ['right', options.bar.position.value];
-        if (options.bar.position.value === 'top')
-            self.transition = 'slide_down';
+         self.anchor = ['right', options.bar.position.value];
+         if (options.bar.position.value === 'top')
+             self.transition = 'slide_down';
 
-        if (options.bar.position.value === 'bottom')
-            self.transition = 'slide_up';
+         if (options.bar.position.value === 'bottom')
+             self.transition = 'slide_up';
     }),
     child: Widget.Box({
         vertical: true,
@@ -48,7 +48,7 @@ export default () => PopupWindow({
                 children: [
                     Row(
                         [Volume()],
-                        [SinkSelector(), AppMixer()],
+                        [SinkSelector()],
                     ),
                     Microhone(),
                     Brightness(),
@@ -59,8 +59,10 @@ export default () => PopupWindow({
                 [WifiSelection(), BluetoothDevices()],
             ),
             Row(
-                [Homogeneous([ProfileToggle(), ThemeToggle()]), MicMute()],
-                [ProfileSelector(), ThemeSelector()],
+                //[Homogeneous([ProfileToggle(), ThemeToggle()]), MicMute()],
+                //[ProfileSelector(), ThemeSelector()],
+                [Homogeneous([AppMixerToggle(), ThemeToggle()]), MicMute()],
+                [AppMixer(), ThemeSelector()],
             ),
             Media(),
         ],

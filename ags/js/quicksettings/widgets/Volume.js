@@ -48,6 +48,7 @@ export const Volume = () => Widget.Box({
     ],
 });
 
+
 export const Microhone = () => Widget.Box({
     class_name: 'slider horizontal',
     visible: Audio.bind('recorders').transform(a => a.length > 0),
@@ -137,6 +138,16 @@ export const AppMixer = () => Menu({
         Widget.Separator(),
         SettingsButton(),
     ],
+});
+
+export const AppMixerToggle = () => ArrowToggleButton({
+    name: 'app-mixer',
+    icon: FontIcon(icons.audio.mixer),
+    label: Widget.Label('App Mixer'),
+    connection: [opened, () => opened.value === 'app-mixer'],
+    activate: () => opened.setValue('app-mixer'),
+    activateOnArrow: false,
+    deactivate: () => { },
 });
 
 export const SinkSelector = () => Menu({
