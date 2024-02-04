@@ -1,6 +1,6 @@
 {
     "name": "starlight",
-    "version": "1.6.4",
+    "version": "1.7.4",
     "description": "The night skies",
     "main": "config.js",
     "scripts": {

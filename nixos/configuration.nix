@@ -63,7 +63,9 @@
   # user
   users.users.${username} = {
     isNormalUser = true;
+    initialPassword = username;
     extraGroups = [
+      "nixosvmtest"
       "networkmanager"
       "wheel"
       "audio"
@@ -93,6 +95,17 @@
       timeout = 2;
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
+    };
+    plymouth = rec {
+      enable = true;
+      # black_hud circle_hud cross_hud square_hud
+      # circuit connect cuts_alt seal_2 seal_3
+      theme = "circle_hud";
+      themePackages = with pkgs; [(
+        adi1090x-plymouth-themes.override {
+          selected_themes = [ theme ];
+        }
+      )];
     };
   };
 
