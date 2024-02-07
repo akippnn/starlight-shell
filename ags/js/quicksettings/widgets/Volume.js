@@ -4,8 +4,7 @@ import * as Utils from 'resource:///com/github/Aylur/ags/utils.js';
 import icons from '../../icons.js';
 import FontIcon from '../../misc/FontIcon.js';
 import { getAudioTypeIcon } from '../../utils.js';
-import { Arrow } from '../ToggleButton.js';
-import { Menu } from '../ToggleButton.js';
+import { Arrow, Menu, ArrowToggleButton, opened } from '../ToggleButton.js';
 
 /** @param {'speaker' | 'microphone'=} type */
 const VolumeIndicator = (type = 'speaker') => Widget.Button({
