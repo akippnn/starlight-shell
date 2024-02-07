@@ -122,7 +122,7 @@ export default {
             'title': 'Border on Inactive Windows',
             'scss': 'exclude',
         }),
-        wm_gaps_multiplier: Option(2.4, {
+        wm_gaps_multiplier: Option(2, {
             'category': 'General',
             'scss': 'wm-gaps-multiplier',
             'note': 'wm-gaps: padding × this',
